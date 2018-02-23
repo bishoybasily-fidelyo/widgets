@@ -30,9 +30,7 @@ public class ChipEditText<T extends Chip> extends AppCompatEditText implements T
     private final List<T> chips = new ArrayList<>();
     private final List<T> chipsToRemove = new ArrayList<>();
 
-    private ChipCallback chipCallback = text -> {
-        Log.i("ChipEditText", text);
-    };
+    private ChipCallback chipCallback = text -> Log.i("ChipEditText", text);
 
     private View chipView;
 
@@ -88,7 +86,7 @@ public class ChipEditText<T extends Chip> extends AppCompatEditText implements T
             BitmapDrawable drawable = new BitmapDrawable(captureView(textView));
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             builder.setSpan(new ImageSpan(drawable), index, index + chip.text().length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            index = index + chip.text().length();
+            index += chip.text().length();
 
         }
 
@@ -160,16 +158,20 @@ public class ChipEditText<T extends Chip> extends AppCompatEditText implements T
     private String getRemaining(Editable editable) {
         StringBuilder stringBuilder = new StringBuilder(editable);
 
-        int replSt, repEn, repTot = 0;
+        int repSt, repEn, repTot = 0;
 
         for (Chip chip : chips) {
 
-            replSt = chip.index() - repTot;
+            repSt = chip.index();
             repEn = chip.index() + chip.text().length();
 
-            repTot = repEn - replSt;
+            repSt = repSt - repTot;
+            repEn = repEn - repTot;
 
-            stringBuilder.replace(replSt, repEn, "");
+            stringBuilder.replace(repSt, repEn, "");
+
+            repTot += (repEn - repSt);
+
         }
 
         return stringBuilder.toString();
