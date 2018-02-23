@@ -180,4 +180,13 @@ public class ChipEditText<T extends Chip> extends AppCompatEditText implements T
     public List<T> getItems() {
         return chips;
     }
+
+    @Override
+    protected void onSelectionChanged(int selStart, int selEnd) {
+
+        if (selEnd != selStart || selEnd != getText().length())
+            setSelection(getText().length());
+
+
+    }
 }
