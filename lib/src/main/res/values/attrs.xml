@@ -1,0 +1,40 @@
+<resources>
+
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ReadMoreTextView">
+        <attr name="expandText" format="string" />
+        <attr name="collapseText" format="string" />
+        <attr name="maxLines" format="integer" />
+        <attr name="maxCharacters" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="borderWidth" format="dimension" />
+        <attr name="borderColor" format="color" />
+        <attr name="borderOverlay" format="boolean" />
+        <attr name="backgroundColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="WaveView">
+        <attr name="frontColor" format="color" />
+        <attr name="backColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="HighlightTextView">
+        <attr name="highlightColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ChipTextView">
+        <attr name="chipSpacing" format="reference|dimension" />
+        <attr name="chipBackground" format="reference|color" />
+        <attr name="chipTextColor" format="reference|color" />
+        <attr name="chipTextSize" format="reference|dimension" />
+        <attr name="chipHeight" format="reference|dimension" />
+        <attr name="chipVerticalSpacing" format="reference|dimension" />
+    </declare-styleable>
+
+</resources>
