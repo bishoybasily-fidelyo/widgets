@@ -1,4 +1,4 @@
-package com.fidelyo.ui.widget
+package com.fidelyo.widgets
 
 import android.content.Context
 import android.graphics.Color
@@ -12,7 +12,6 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.util.AttributeSet
 import android.view.View
-import com.fidelyo.R
 
 
 /**

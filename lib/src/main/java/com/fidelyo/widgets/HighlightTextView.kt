@@ -1,4 +1,4 @@
-package com.fidelyo.ui.widget
+package com.fidelyo.widgets
 
 import android.content.Context
 import android.graphics.Color
@@ -9,7 +9,6 @@ import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.BackgroundColorSpan
 import android.util.AttributeSet
-import com.fidelyo.R
 
 /**
  * Created by bishoy on 12/21/16.
@@ -18,9 +17,7 @@ class HighlightTextView : AppCompatTextView {
 
     private val TAG = javaClass.simpleName
 
-    private val HIGHLIGHT = R.color.colorAccent
-
-    private var highlight = HIGHLIGHT
+    private var highlight: Int? = null
 
     constructor(context: Context) : super(context) {
         initialize()
@@ -52,7 +49,7 @@ class HighlightTextView : AppCompatTextView {
         if (charSequence != null) {
             if (charSequence.isNotBlank()) {
                 val spannableStringBuilder = SpannableStringBuilder(charSequence)
-                spannableStringBuilder.setSpan(BackgroundColorSpan(highlight), 0, charSequence.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                spannableStringBuilder.setSpan(BackgroundColorSpan(highlight!!), 0, charSequence.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
                 text = spannableStringBuilder
                 movementMethod = LinkMovementMethod.getInstance()
             }

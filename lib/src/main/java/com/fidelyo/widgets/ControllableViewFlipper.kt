@@ -1,4 +1,4 @@
-package com.fidelyo.ui.widget
+package com.fidelyo.widgets
 
 import android.content.Context
 import android.util.AttributeSet
