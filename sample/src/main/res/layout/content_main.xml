@@ -15,7 +15,7 @@
         app:backColor="@color/colorPrimary"
         app:frontColor="@color/colorPrimaryDark" />
 
-    <com.fidelyo.widgets.ChipEditText
+    <com.fidelyo.sample.UsersChipEditText
         android:id="@+id/chipEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

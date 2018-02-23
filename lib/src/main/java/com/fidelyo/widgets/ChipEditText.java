@@ -25,10 +25,10 @@ import java.util.List;
  * Created by bishoy on 2/23/18.
  */
 
-public class ChipEditText extends AppCompatEditText implements TextWatcher {
+public class ChipEditText<T extends Chip> extends AppCompatEditText implements TextWatcher {
 
-    private final List<Chip> chips = new ArrayList<>();
-    private final List<Chip> chipsToRemove = new ArrayList<>();
+    private final List<T> chips = new ArrayList<>();
+    private final List<T> chipsToRemove = new ArrayList<>();
 
     private ChipCallback chipCallback = text -> {
         Log.i("ChipEditText", text);
@@ -57,7 +57,7 @@ public class ChipEditText extends AppCompatEditText implements TextWatcher {
         updateText();
     }
 
-    public void addChip(Chip chip) {
+    public void addChip(T chip) {
         chips.add(chip);
         updateText();
     }
@@ -124,7 +124,7 @@ public class ChipEditText extends AppCompatEditText implements TextWatcher {
         if (count > 0 && after < count) {
             int end = start + count;
 
-            for (Chip chip : chips) {
+            for (T chip : chips) {
                 if (chip.index() == start && chip.index() + chip.text().length() == end) {
                     chipsToRemove.add(chip);
                 }
@@ -175,7 +175,7 @@ public class ChipEditText extends AppCompatEditText implements TextWatcher {
         return stringBuilder.toString();
     }
 
-    public List<Chip> getChips() {
+    public List<T> getItems() {
         return chips;
     }
 }

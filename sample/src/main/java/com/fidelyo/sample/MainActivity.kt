@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         chipEditText.handleSearch { Log.w("##", it) }
 
-        fab.setOnLongClickListener { chipEditText.chips.forEach { Log.w("##", it.toString()) }; true }
+        fab.setOnLongClickListener { chipEditText.items.forEach { Log.w("##", it.toString()) }; true }
 
     }
 
