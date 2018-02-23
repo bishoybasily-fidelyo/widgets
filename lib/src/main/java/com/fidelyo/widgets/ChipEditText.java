@@ -30,6 +30,10 @@ public class ChipEditText extends AppCompatEditText implements TextWatcher {
     private final List<Chip> chips = new ArrayList<>();
     private final List<Chip> chipsToRemove = new ArrayList<>();
 
+    private ChipCallback chipCallback = text -> {
+        Log.i("ChipEditText", text);
+    };
+
     private View chipView;
 
     public ChipEditText(Context context) {
@@ -144,8 +148,12 @@ public class ChipEditText extends AppCompatEditText implements TextWatcher {
             updateText();
         }
 
-        Log.i("##", getRemaining(editable));
+        chipCallback.onSearch(getRemaining(editable));
 
+    }
+
+    public void handleSearch(ChipCallback chipCallback) {
+        this.chipCallback = chipCallback;
     }
 
     @NonNull
@@ -163,6 +171,7 @@ public class ChipEditText extends AppCompatEditText implements TextWatcher {
 
             stringBuilder.replace(replSt, repEn, "");
         }
+
         return stringBuilder.toString();
     }
 

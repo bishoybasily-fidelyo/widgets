@@ -19,11 +19,13 @@ class MainActivity : AppCompatActivity() {
 
             var user = User()
 
-            user.name = prod.text.toString();
+            user.name = prod.text.toString()
 
             chipEditText.addChip(user)
 
         }
+
+        chipEditText.handleSearch { Log.w("##", it) }
 
         fab.setOnLongClickListener { chipEditText.chips.forEach { Log.w("##", it.toString()) }; true }
 

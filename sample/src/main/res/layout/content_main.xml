@@ -9,6 +9,12 @@
     tools:context="com.fidelyo.sample.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <com.fidelyo.widgets.WaveView
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        app:backColor="@color/colorPrimary"
+        app:frontColor="@color/colorPrimaryDark" />
+
     <com.fidelyo.widgets.ChipEditText
         android:id="@+id/chipEditText"
         android:layout_width="match_parent"

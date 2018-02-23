@@ -20,11 +20,11 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Shader;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -81,21 +81,24 @@ public class WaveView extends View {
     }
 
     public WaveView(Context context, AttributeSet attrs) {
-        super(context, attrs, 0);
+        super(context, attrs);
+        initailizeAttrs(attrs);
     }
 
     public WaveView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        initailizeAttrs(attrs);
+    }
 
-        TypedArray array = getContext().obtainStyledAttributes(attrs, R.styleable.WaveView, defStyle, 0);
+    private void initailizeAttrs(AttributeSet attrs) {
+        TypedArray array = getContext().obtainStyledAttributes(attrs, R.styleable.WaveView);
 
-        mBehindWaveColor = array.getDimensionPixelSize(R.styleable.WaveView_backColor, 0);
-        mFrontWaveColor = array.getColor(R.styleable.WaveView_frontColor, 0);
+        mFrontWaveColor = array.getColor(R.styleable.WaveView_frontColor, Color.GRAY);
+        mBehindWaveColor = array.getColor(R.styleable.WaveView_backColor, Color.BLACK);
 
         array.recycle();
 
         initialize();
-
     }
 
     private void initialize() {
